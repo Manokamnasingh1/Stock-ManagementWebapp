@@ -1,0 +1,95 @@
+.dashboard {
+  padding: 10px;
+}
+
+/* Header */
+.dashboard-title {
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.dashboard-subtitle {
+  color: #64748b;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Cards grid */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Card base */
+.summary-card {
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.card-title {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.summary-card h3 {
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+.summary-card span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Card colors */
+.blue {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.purple {
+  background: linear-gradient(135deg, #9333ea, #6b21a8);
+}
+
+.green {
+  background: linear-gradient(135deg, #16a34a, #166534);
+}
+
+.orange {
+  background: linear-gradient(135deg, #f97316, #c2410c);
+}
+
+/* Shop info card */
+.shop-info {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.shop-info h3 {
+  margin-bottom: 10px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    padding: 14px;
+  }
+
+  .summary-card h3 {
+    font-size: 20px;
+  }
+}

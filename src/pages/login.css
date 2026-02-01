@@ -1,0 +1,86 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: #f0f4f8;
+}
+
+.login-card {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px; /* max width for desktop */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.login-card img.logo {
+  width: 100px;
+ 
+}
+
+.login-card h2 {
+  margin-bottom: 25px;
+  color: #333333;
+  font-size: 24px;
+}
+
+.login-card input,
+.login-card select {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745; /* green color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #218838; /* darker green on hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .login-card {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  .login-card img.logo {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .login-card input,
+  .login-card select,
+  .login-card button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,69 @@
+.topbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  background-color: #1f2937;
+  color: #fff;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 240px;              /* ✅ push after sidebar */
+  width: calc(100% - 240px); /* ✅ remaining width */
+
+  z-index: 900; /* lower than sidebar */
+}
+
+/* Left section */
+.topbar-left {
+  font-size: 1.4rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Right section */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Role badge */
+.topbar-right .role {
+  background-color: #374151;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* Logout button */
+.topbar-right button {
+  padding: 6px 12px;
+  background-color: #ef4444;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.topbar-right button:hover {
+  background-color: #b91c1c;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .topbar {
+    left: 0;
+    width: 100%;
+  }
+
+  .topbar-left {
+    font-size: 1.2rem;
+  }
+
+  .topbar-right .role {
+    display: none;
+  }
+}

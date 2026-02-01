@@ -1,0 +1,101 @@
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  color: #000;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+/* MOBILE hidden */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -250px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+}
+
+/* ========== SIDEBAR HEADER ========== */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 20px;
+  border-bottom: 1px solid #000;
+}
+
+.sidebar-header h2 {
+  font-size: 1.2rem;
+}
+
+/* CLOSE button (mobile only) */
+.sidebar-close {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #000;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .sidebar-close {
+    display: block;
+  }
+}
+
+/* ========== MENU ========== */
+.sidebar-menu a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background-color: #16a34a;
+  color: #000;
+}
+
+/* ========== TOGGLE BUTTON (MOBILE) ========== */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+
+  background: #1e293b;
+  color: #fff;
+  border: none;
+
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 4px;
+
+  z-index: 1100;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+/* ========== OVERLAY ========== */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 950;
+}

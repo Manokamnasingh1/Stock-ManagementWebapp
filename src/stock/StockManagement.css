@@ -1,0 +1,157 @@
+/* ===============================
+   PAGE
+================================ */
+.stock-page {
+  padding: 12px;
+  max-width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+/* ===============================
+   GRID
+   (Mobile First)
+================================ */
+.stock-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* ===============================
+   CARD
+================================ */
+.stock-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   CARD HEADER
+================================ */
+.stock-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.stock-card-header span {
+  font-size: 18px;
+}
+
+.stock-card-header.purple {
+  color: #7c3aed;
+}
+
+.stock-card-header.green {
+  color: #16a34a;
+}
+
+/* ===============================
+   TABLE / ROWS
+================================ */
+.stock-table {
+  width: 100%;
+}
+
+.stock-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.stock-head {
+  font-size: 13px;
+  color: #64748b;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+
+/* Product info */
+.stock-row strong {
+  font-size: 14px;
+}
+
+.stock-row p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+/* ===============================
+   BADGE
+================================ */
+.badge {
+  min-width: 38px;
+  text-align: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge.dark {
+  background: #111827;
+  color: #ffffff;
+}
+
+.badge.danger {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* ===============================
+   TABLET (≥ 640px)
+================================ */
+@media (min-width: 640px) {
+  .page-title {
+    font-size: 22px;
+  }
+
+  .stock-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stock-card {
+    padding: 16px;
+  }
+}
+
+/* ===============================
+   DESKTOP (≥ 1024px)
+================================ */
+@media (min-width: 1024px) {
+  .stock-page {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .stock-card {
+    padding: 18px;
+  }
+}
