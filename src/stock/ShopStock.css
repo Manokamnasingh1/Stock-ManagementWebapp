@@ -1,0 +1,73 @@
+.shop-stock {
+  padding: 20px;
+}
+
+.shop-stock h2 {
+  margin-bottom: 15px;
+}
+
+.stock-table {
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+.table-header {
+  background: #f4f6f8;
+  font-weight: bold;
+}
+
+.table-row {
+  border-top: 1px solid #eee;
+}
+
+.table-row:hover {
+  background: #fafafa;
+}
+
+.qty {
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c62828;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .table-row span {
+    font-size: 14px;
+  }
+
+  .delete-btn {
+    width: 100%;
+  }
+}

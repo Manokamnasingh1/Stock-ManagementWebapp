@@ -15,9 +15,11 @@ import ShopStock from "./stock/ShopStock";
 import Reports from "./stock/Reports";
 import Settings from "./stock/Settings";
 
-
+// PrivateRoute for authentication + role check
 function PrivateRoute({ children, role }) {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
+
+  if (loading) return <p>Loading...</p>; // wait for auth context
 
   if (!user) return <Navigate to="/login" replace />;
   if (role && user.role !== role) return <Navigate to="/login" replace />;
@@ -26,14 +28,16 @@ function PrivateRoute({ children, role }) {
 }
 
 export default function App() {
+  const { user } = useContext(AuthContext);
+
   return (
     <Routes>
       {/* LOGIN */}
       <Route path="/login" element={<Login />} />
 
-      {/* ADMIN */}
+      {/* ADMIN ROUTES */}
       <Route
-        path="/admin"
+        path="/admin/*"
         element={
           <PrivateRoute role="ADMIN">
             <AdminLayout />
@@ -43,33 +47,35 @@ export default function App() {
         <Route index element={<AdminDashboard />} />
         <Route path="add-product" element={<AddProduct />} />
         <Route path="stock-management" element={<StockManagement />} />
-        <Route path="stock-transfer" element={<StockTransfer />} /> 
-        <Route path="/admin/godown-stock" element={<GodownStock />} />
-        <Route path="/admin/shop-stock" element={<ShopStock />} />
-       
-      
-        <Route path="/admin/reports" element={<Reports />} />
-       
-        <Route path="/admin/settings" element={<Settings />} /> 
-
+        <Route path="stock-transfer" element={<StockTransfer />} />
+        <Route path="godown-stock" element={<GodownStock />} />
+        <Route path="shop-stock" element={<ShopStock />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
 
-      {/* STAFF */}
+      {/* STAFF ROUTES */}
       <Route
-        path="/staff"
+        path="/staff/*"
         element={
           <PrivateRoute role="STAFF">
             <StaffLayout />
           </PrivateRoute>
         }
-        >
-           <Route index element={<StaffDashboard />} />
-        </Route>
-      
-      
+      >
+        <Route index element={<StaffDashboard />} />
+      </Route>
 
-      {/* DEFAULT */}
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      {/* DEFAULT REDIRECT */}
+      <Route
+        path="*"
+        element={
+          <Navigate
+            to={user ? (user.role === "ADMIN" ? "/admin" : "/staff") : "/login"}
+            replace
+          />
+        }
+      />
     </Routes>
   );
 }

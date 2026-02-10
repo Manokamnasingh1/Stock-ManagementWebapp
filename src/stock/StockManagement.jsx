@@ -1,60 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./StockManagement.css";
 
 export default function StockManagement() {
+  const [stats, setStats] = useState({
+    godownStock: 0,
+    shopStock: 0,
+  });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/dashboard/summary")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setStats({
+            godownStock: data.data.godownStock || 0,
+            shopStock: data.data.shopStock || 0,
+          });
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <div className="stock-page">
-      {/* Header */}
       <h2 className="page-title">Stock Management</h2>
-      <p className="page-subtitle">
-        View godown and shop stock
-      </p>
+      <p className="page-subtitle">Godown and Shop stock summary</p>
 
       <div className="stock-grid">
-        {/* Godown Stock */}
+        {/* GODOWN CARD */}
         <div className="stock-card">
           <div className="stock-card-header purple">
             <span>🏬</span>
             <h3>Godown Stock</h3>
           </div>
-
-          <div className="stock-table">
-            <div className="stock-row stock-head">
-              <span>Product</span>
-              <span>Stock</span>
-            </div>
-
-            <div className="stock-row">
-              <div>
-                <strong>Bhindi Seed</strong>
-                <p>Clause · 1 kg</p>
-              </div>
-              <span className="badge dark">100</span>
-            </div>
-          </div>
+          <div className="stock-count">{stats.godownStock}</div>
         </div>
 
-        {/* Shop Stock */}
+        {/* SHOP CARD */}
         <div className="stock-card">
           <div className="stock-card-header green">
             <span>🏪</span>
             <h3>Shop Stock</h3>
           </div>
-
-          <div className="stock-table">
-            <div className="stock-row stock-head">
-              <span>Product</span>
-              <span>Stock</span>
-            </div>
-
-            <div className="stock-row">
-              <div>
-                <strong>Bhindi Seed</strong>
-                <p>Clause · 1 kg</p>
-              </div>
-              <span className="badge danger">0</span>
-            </div>
-          </div>
+          <div className="stock-count">{stats.shopStock}</div>
         </div>
       </div>
     </div>

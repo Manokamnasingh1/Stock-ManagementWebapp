@@ -6,6 +6,8 @@
   max-width: 1200px;
   margin: auto;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb; /* light page background */
 }
 
 /* ===============================
@@ -15,11 +17,12 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 4px;
+  color: #111827;
 }
 
 .page-subtitle {
   font-size: 14px;
-  color: #64748b;
+  color: #fff;
   margin-bottom: 16px;
 }
 
@@ -38,9 +41,15 @@
 ================================ */
 .stock-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 14px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 16px; /* more rounded */
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* stronger shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stock-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* ===============================
@@ -49,22 +58,32 @@
 .stock-card-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-weight: 600;
   font-size: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .stock-card-header span {
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.stock-card-header.purple {
-  color: #7c3aed;
-}
+/* Card colors */
 
-.stock-card-header.green {
-  color: #16a34a;
+
+
+
+/* ===============================
+   STOCK COUNT
+================================ */
+.stock-count {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 12px;
+  background: #f3f4f6; /* light background inside card */
 }
 
 /* ===============================
@@ -135,7 +154,11 @@
   }
 
   .stock-card {
-    padding: 16px;
+    padding: 18px;
+  }
+
+  .stock-count {
+    font-size: 32px;
   }
 }
 
@@ -152,6 +175,10 @@
   }
 
   .stock-card {
-    padding: 18px;
+    padding: 20px;
+  }
+
+  .stock-count {
+    font-size: 36px;
   }
 }

@@ -1,9 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import "./Login.css"; // Import the CSS
-
-// Import the logo from assets
+import "./Login.css";
 import logo from "../assets/logo.jpg";
 
 export default function Login() {
@@ -12,7 +10,6 @@ export default function Login() {
   const [role, setRole] = useState("ADMIN");
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
-    console.log("LOGIN PAGE RENDERED");
 
   const handleLogin = () => {
     if (role === "ADMIN" && userId === "Admin" && password === "admin123") {
@@ -29,8 +26,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-        {/* Logo */}
-        <img src={logo} alt="Stock Management Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo" />
 
         <select value={role} onChange={(e) => setRole(e.target.value)}>
           <option value="ADMIN">Admin</option>

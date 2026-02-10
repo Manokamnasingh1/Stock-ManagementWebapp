@@ -96,6 +96,6 @@
 .sidebar-overlay {
   position: fixed;
   inset: 0;
-  background: #fff;
+ /* background: #fff; */
   z-index: 950;
 }
