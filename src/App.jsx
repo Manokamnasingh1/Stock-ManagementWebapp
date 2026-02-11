@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
 import Login from "./pages/Login";
-import AdminLayout from "./components/layout/AdminLayout";
+import AdminLayout from "./components/Layout/AdminLayout";
 import AdminDashboard from "./components/dashboard/AdminDashboard";
 import StaffDashboard from "./components/dashboard/StaffDashboard";
 import StaffLayout from "./components/Layout/StaffLayout";
