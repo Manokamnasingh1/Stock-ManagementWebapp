@@ -7,9 +7,10 @@ export default function StockManagement() {
     shopStock: 0,
   });
   const [loading, setLoading] = useState(true);
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch("https://stockmangtback.onrender.com/api/dashboard/summary")
+    fetch(`${BASE_URL}/api/dashboard/summary`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

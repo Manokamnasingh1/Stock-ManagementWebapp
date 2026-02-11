@@ -4,9 +4,9 @@ import "./GodownStock.css";
 export default function GodownStock() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const fetchProducts = () => {
-    fetch("https://stockmangtback.onrender.com/api/products")
+    fetch(`${BASE_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

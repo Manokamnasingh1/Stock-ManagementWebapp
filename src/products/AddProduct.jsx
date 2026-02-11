@@ -14,6 +14,7 @@ const initialState = {
   initialStock: "",
   lowStockAlert: 10,
 };
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export default function AddProduct() {
   const [formData, setFormData] = useState(initialState);
@@ -49,7 +50,7 @@ export default function AddProduct() {
     try {
       setLoading(true);
 
-      const res = await fetch("https://stockmangtback.onrender.com/api/products/add", {
+      const res = await fetch(`${BASE_URL}/api/products/add`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",

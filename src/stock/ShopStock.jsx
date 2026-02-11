@@ -4,9 +4,9 @@ import "./ShopStock.css";
 export default function ShopStock() {
   const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const fetchStocks = () => {
-    fetch("https://stockmangtback.onrender.com/api/stock/shop")
+    fetch(`${BASE_URL}/api/stock/shop`)
       .then((res) => res.json())
       .then((data) => {
         setStocks(data);
@@ -26,10 +26,10 @@ export default function ShopStock() {
     if (!window.confirm("Delete this product from shop stock?")) return;
 
     try {
-      const res = await fetch(
-        `http://localhost:5000/api/stock/shop/${id}`,
-        { method: "DELETE" }
-      );
+  const res = await fetch(
+    `${BASE_URL}/api/stock/shop/${id}`,
+    { method: "DELETE" }
+  );
 
       if (res.ok) {
         fetchStocks(); // refresh list

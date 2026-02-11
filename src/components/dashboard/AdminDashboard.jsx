@@ -8,9 +8,14 @@ export default function AdminDashboard() {
     shopStock: 0,
     todaySales: 0,
   });
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+
+
 
   useEffect(() => {
-    fetch("https://stockmangtback.onrender.com/api/dashboard/summary")
+    
+    fetch(`${BASE_URL}/api/dashboard/summary`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

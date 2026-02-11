@@ -26,6 +26,7 @@ export default function StockTransfer() {
     setQuantity("");
     setNote("");
   };
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   // Transfer stock
   const handleTransfer = async () => {
@@ -47,7 +48,7 @@ export default function StockTransfer() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://stockmangtback.onrender.com/api/stock/transfer", {
+      const res = await fetch(`${BASE_URL}/api/stock/transfer`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
