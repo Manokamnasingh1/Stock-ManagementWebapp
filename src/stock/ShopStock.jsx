@@ -6,7 +6,7 @@ export default function ShopStock() {
   const [loading, setLoading] = useState(true);
 
   const fetchStocks = () => {
-    fetch("http://localhost:5000/api/stock/shop")
+    fetch("https://stockmangtback.onrender.com/api/stock/shop")
       .then((res) => res.json())
       .then((data) => {
         setStocks(data);

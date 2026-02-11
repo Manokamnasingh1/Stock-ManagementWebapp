@@ -6,7 +6,7 @@ export default function GodownStock() {
   const [loading, setLoading] = useState(true);
 
   const fetchProducts = () => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://stockmangtback.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

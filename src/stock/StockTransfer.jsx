@@ -10,7 +10,7 @@ export default function StockTransfer() {
 
   // Fetch products
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:5000/api/products");
+    const res = await fetch("https://stockmangtback.onrender.com/api/products");
     const data = await res.json();
     setProducts(data);
   };
@@ -47,7 +47,7 @@ export default function StockTransfer() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/stock/transfer", {
+      const res = await fetch("https://stockmangtback.onrender.com/api/stock/transfer", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

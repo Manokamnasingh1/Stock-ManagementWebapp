@@ -10,7 +10,7 @@ export default function AdminDashboard() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard/summary")
+    fetch("https://stockmangtback.onrender.com/api/dashboard/summary")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

@@ -49,7 +49,7 @@ export default function AddProduct() {
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/api/products/add", {
+      const res = await fetch("https://stockmangtback.onrender.com/api/products/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
